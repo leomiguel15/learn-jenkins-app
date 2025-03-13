@@ -15,6 +15,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    clearWS()
                     echo 'success trigger'
                     ls -la
                     node --version
