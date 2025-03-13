@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh '''
                     npm start
+                    ls -la
                     find build/index.html
                     npm test
                 '''
