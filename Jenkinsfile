@@ -53,7 +53,7 @@ pipeline {
             steps { 
                 sh '''
                     npm install serve
-                    nohup node_modules/.bin/serve -s build & echo $! > serve.pid
+                    nohup node_modules/.bin/serve -s build &
                 '''
                 sh 'npx playwright test' // Start the Playwright tests
             }
@@ -62,11 +62,6 @@ pipeline {
 
     post {
         always {
-            sh '''
-                if [ -f serve.pid ]; then
-                    kill $(cat serve.pid)
-                fi
-            '''
             junit 'test-results/junit.xml'
         }
     }
