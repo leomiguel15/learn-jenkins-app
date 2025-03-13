@@ -54,6 +54,8 @@ pipeline {
                 sh '''
                     npm install serve
                     nohup node_modules/.bin/serve -s build &
+                    sleep(10)
+
                 '''
                 sh 'npx playwright test' // Start the Playwright tests
             }
