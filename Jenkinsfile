@@ -15,7 +15,6 @@ pipeline {
                     npn test
                 '''
             }
-
         }
         stage('Build') {
             agent {
