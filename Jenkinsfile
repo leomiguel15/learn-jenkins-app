@@ -57,7 +57,7 @@ pipeline {
                     sleep(10)
 
                 '''
-                sh 'npx playwright test' // Start the Playwright test
+                sh 'npx playwright test' // Start the Playwright tests
             }
         }
     }
