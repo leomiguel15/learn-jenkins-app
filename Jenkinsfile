@@ -45,25 +45,28 @@ pipeline {
         stage('E2E') {
             agent {
                 docker {
-                    image 'mcr.microsoft.com/playwright:v1.51.0-noble' //playwrights has Docker image link: https://playwright.dev/docs/docker
+                    image 'mcr.microsoft.com/playwright:v1.51.0-noble'
                     reuseNode true
                     args '-u root:root'
                 }
             }
-            //add the commands that needs to run
             steps { 
                 sh '''
                     npm install serve
-                    node_modules/.bin/serve -s build
+                    nohup node_modules/.bin/serve -s build & echo $! > serve.pid
                 '''
-                sh 'npx playwright test' //start the playwright tests
-                
+                sh 'npx playwright test' // Start the Playwright tests
             }
         }
     }
 
     post {
         always {
+            sh '''
+                if [ -f serve.pid ]; then
+                    kill $(cat serve.pid)
+                fi
+            '''
             junit 'test-results/junit.xml'
         }
     }
