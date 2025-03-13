@@ -15,7 +15,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    clearWS()
                     echo 'success trigger'
                     ls -la
                     node --version
@@ -54,10 +53,10 @@ pipeline {
                 sh '''
                     npm install serve
                     nohup node_modules/.bin/serve -s build &
-                    sleep(10)
+                    sleep 10
 
                 '''
-                sh 'npx playwright test' // Start the Playwright tests
+                sh 'npx playwright test' // Start the Playwright test
             }
         }
     }
