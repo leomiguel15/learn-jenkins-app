@@ -49,9 +49,9 @@ pipeline {
                     reuseNode true
                 }
             }
-            steps {
+            //add the commands that needs to run
+            steps { 
                 sh '''
-                    //add the commands that needs to run
                     npm install -g serve
                     serve -s build
                     npx playwright test //start the playwright tests
