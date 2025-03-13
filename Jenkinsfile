@@ -15,7 +15,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo 'success trigger'
+                    echo 'success triggers'
                     ls -la
                     node --version
                     npm --version
