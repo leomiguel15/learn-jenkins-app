@@ -11,8 +11,9 @@ pipeline {
             }
             steps {
                 sh '''
+                    npm start
                     find /build/index.html
-                    npn test
+                    npm test
                 '''
             }
         }
