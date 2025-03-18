@@ -19,7 +19,7 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
-                    sudo npm ci #use for CI server
+                    npm ci
                     npm run build
                     ls -la
                 '''
