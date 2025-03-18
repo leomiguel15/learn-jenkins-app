@@ -15,11 +15,11 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo 'success trigger'
+                    echo 'success triggers'
                     ls -la
                     node --version
                     npm --version
-                    npm ci #use for CI server
+                    sudo npm ci #use for CI server
                     npm run build
                     ls -la
                 '''
@@ -46,7 +46,6 @@ pipeline {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.51.0-noble'
                     reuseNode true
-                    args '-u root:root'
                 }
             }
             steps { 
