@@ -14,6 +14,7 @@ pipeline {
                 }
             }
             steps {
+                clearWS()
                 sh '''
                     echo 'success triggers'
                     ls -la
