@@ -16,7 +16,7 @@ pipeline {
             steps {
                 cleanWS()
                 sh '''
-                    echo 'success triggers'
+                    echo 'success trigger'
                     ls -la
                     node --version
                     npm --version
