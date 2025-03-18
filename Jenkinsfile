@@ -19,7 +19,7 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
-                    npm ci #use for CI servers
+                    npm ci #use for CI server
                     npm run build
                     ls -la
                 '''
